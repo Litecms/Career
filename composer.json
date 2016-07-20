@@ -1,0 +1,21 @@
+{
+    "name": "litecms/career",
+    "description": "Career package for litecms.",
+    "keywords": ["lavalite", "Career"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lavalite",
+            "email": "info@lavalite.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Litecms\\Career\\": "src/Litecms/Career"
+        }
+    },
+    "minimum-stability": "dev"
+}
