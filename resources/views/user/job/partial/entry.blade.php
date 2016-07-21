@@ -1,3 +1,4 @@
+
 <div class='col-md-4 col-sm-6'>
                      {!! Form::text('title')
                      -> required()
@@ -30,3 +31,4 @@
                      {!!Filer::uploader('image',@$job->getUploadURL('image'),1)!!}
                       {!!Filer::editor('image',@$job['image'],1)!!}
                 </div>
+{!! Form::hidden('upload_folder')!!}

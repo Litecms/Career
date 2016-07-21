@@ -19,5 +19,6 @@
     ->files('true')
     ->action(trans_url('user/career/resume'))!!}
             @include('career::user.resume.partial.entry')
+   
     {!! Form::close() !!}
 </div>

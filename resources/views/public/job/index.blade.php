@@ -27,11 +27,9 @@
                              <?php $align = $key % 2 * 1;?>
                              @if($align)
                                 <div class="col-sm-6">
-                                    @if(!empty($job['image']))
-                                    <div class="career-image" style='background-image: url("{!!URL::to('image/cr/'.@$job['image']['efolder'])!!}/{!!@$job['image']['file']!!}");'></div>
-                                    @else
-                                     <div class="career-image" style='background-image: url("{!!URL::to('img/career-default.jpg')!!}"); '></div>
-                                    @endif
+
+                                    <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('cr','image'))!!});"></div>
+
                                 </div>
                             @endif
                                 <div class="col-sm-6">
@@ -45,11 +43,7 @@
                                 </div>
                                 @if(!$align)
                                 <div class="col-sm-6">
-                                   @if(!empty($job['image']))
-                                    <div class="career-image" style='background-image: url("{!!URL::to('image/cr/'.@$job['image']['efolder'])!!}/{!!@$job['image']['file']!!}");'></div>
-                                    @else
-                                     <div class="career-image" style='background-image: url("{!!URL::to('img/career-default.jpg')!!}"); '></div>
-                                    @endif
+                                   <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('cr','image'))!!});"></div>
                                 </div>
                             @endif
 

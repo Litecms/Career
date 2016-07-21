@@ -32,9 +32,8 @@
                     @include('career::admin.job.partial.entry')
                      <div class='col-md-6 col-sm-12'>
                     <label>Image</label>
-                    @if(!empty($job->image))
-                    <img src="{!!URL::to('image/sm/'.@$job['image']['efolder'])!!}/{!!@$job['image']['file']!!}" class="img-responsive">
-                    @endif
+
+                    <img src="{!!url($job->defaultImage('sm','image'))!!}" class="img-responsive">
                 </div>
                 </div>
             </div>

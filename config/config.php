@@ -15,38 +15,41 @@ return [
     /*
      * Modules.
      */
-    'modules'  => ['job', 'resume'],
+    'modules'  => ['job',
+        'resume'],
 
     'job'      => [
         'model'         => 'Litecms\Career\Models\Job',
-        'table'         => 'career_jobs',
+        'table'         => 'jobs',
         'presenter'     => \Litecms\Career\Repositories\Presenter\JobItemPresenter::class,
         'hidden'        => [],
         'visible'       => [],
         'guarded'       => ['*'],
-        'slugs'         => ['slug' => 'name'],
+        'slugs'         => ['slug' => 'title'],
         'dates'         => ['deleted_at'],
         'appends'       => [],
-        'fillable'      => ['user_id', 'title', 'job_type', 'location', 'details'],
-        'translate'     => ['title', 'job_type', 'location', 'details'],
+        'fillable'      => ['user_id', 'published', 'title', 'job_type', 'image', 'location', 'details','upload_folder'],
 
         'upload-folder' => '/uploads/career/job',
         'uploads'       => [
-            'single'   => [],
+            'single'   => ['image'],
             'multiple' => [],
         ],
         'casts'         => [
+            'image' => 'array',
         ],
         'revision'      => [],
         'perPage'       => '20',
         'search'        => [
-            'name' => 'like',
-            'status',
+            'title' => 'like',
+            'job_type',
+            'location',
+            'published',
         ],
     ],
     'resume'   => [
         'model'         => 'Litecms\Career\Models\Resume',
-        'table'         => 'career_resumes',
+        'table'         => 'resumes',
         'presenter'     => \Litecms\Career\Repositories\Presenter\ResumeItemPresenter::class,
         'hidden'        => [],
         'visible'       => [],
@@ -54,21 +57,24 @@ return [
         'slugs'         => ['slug' => 'name'],
         'dates'         => ['deleted_at'],
         'appends'       => [],
-        'fillable'      => ['user_id', 'name', 'email_id', 'mobile', 'message', 'resume', 'image', 'job_id'],
-        'translate'     => ['name', 'email_id', 'mobile', 'message', 'resume', 'image', 'job_id'],
+        'fillable'      => ['user_id', 'name', 'email_id', 'mobile', 'message', 'resume', 'image', 'job_id','upload_folder'],
 
         'upload-folder' => '/uploads/career/resume',
         'uploads'       => [
-            'single'   => [],
+            'single'   => ['resume', 'image'],
             'multiple' => [],
         ],
         'casts'         => [
+            'resume' => 'array',
+            'image'  => 'array',
         ],
         'revision'      => [],
         'perPage'       => '20',
         'search'        => [
             'name' => 'like',
-            'status',
+            'email_id',
+            'mobile',
+            'job_id',
         ],
     ],
 ];

@@ -24,6 +24,7 @@ Route::group(['prefix' => trans_setlocale() . 'api/v1/user/career'], function ()
 // Public web routes for job
 Route::group(['prefix' => trans_setlocale() . '/careers'], function () {
     Route::get('job/', 'Litecms\Career\Http\Controllers\JobController@index');
+    Route::get('jobs/{slug?}', 'Litecms\Career\Http\Controllers\JobController@views');
     Route::get('job/{job_type?}', 'Litecms\Career\Http\Controllers\JobController@show');
 });
 

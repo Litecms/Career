@@ -1,15 +1,38 @@
  <section class="career">
             <div class="container">
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+
                         <h1 class="main-title">
                             <small>Apply For</small>
                             {!!$job['title']!!}<span> </span>
                         </h1>
+                         <div class="career-block">
+                            <div class="row">
+
+                                <div class="col-sm-6">
+
+                                    <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('cr','image'))!!});"></div>
+
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <div  class="career-content-left text-center">
+                                        <h2>{!!$job['title']!!} <span></span></h2>
+                                        <p class="location"><i class="icon-location-pin"></i> : {!!$job['location']!!}</p>
+                                        <p>{!!$job['details']!!}</p>
+                                       <!--  <a href="#" class="btn btn-danger btn-sm text-uppercase">Apply Now</a> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <p>{!!$job['details']!!}</p>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-xs text-right">
-                        <img src="img/career-side-icon.png" alt="">
+                        <img src="{!! trans_url('img/career-side-icon.png') !!}" alt="">
                     </div>
                 </div>
                 <div class="row">
@@ -20,6 +43,7 @@
                         -> action('careers/resume/upload')!!}
 
                                     {!!Form::hidden('job_id')->value($job['id'])!!}
+                                    {!!Form::hidden('upload_folder')!!}
                             <div class="row">
                                 <div class="col-sm-12">
                                     {!!Form::text('name')
@@ -33,7 +57,7 @@
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                  {!!Form::tel('mobile')
+                                  {!!Form::number('mobile')
                                     -> required()
                                     -> class('form-control')
                                     -> placeholder('Mobile No')

@@ -36,11 +36,15 @@ class ResumeController extends BaseController
      */
     protected function index($slug)
     {
+        $this->theme->asset()->add('dropzone', 'packages/dropzone/dropzone.css');
+        $this->theme->asset()->container('footer')->add('dropzonejs', 'packages/dropzone/dropzone.js');
+
         $resume = $this->repository->newInstance([]);
-        Form::populate($resume);
         $job = $this->job->scopeQuery(function ($query) use ($slug) {
             return $query->orderBy('id', 'DESC')->whereSlug($slug);
         })->first(['*']);
+
+        Form::populate($resume);
 
         return $this->theme->of('career::public.resume.index', compact('resume', 'job'))->render();
     }

@@ -5,13 +5,10 @@
             <div class="row">
                 <div class="col-sm-6 col-md-6">
                     <h3 class="panel-title">
-                        My
-                        <span>
-                            Jobs
-                        </span>
+                        {!!Trans('career::job.user_names')!!}
                     </h3>
                     <p class="panel-sub-title m-t-5 text-muted">
-                        Sub title goes here with small font
+                        {!!Trans('career::job.title')!!}
                     </p>
                 </div>
                 <div class="col-sm-6 col-md-6">
@@ -59,7 +56,7 @@
                              <td>{{ ucfirst($job->location) }}</td>
                             <td>
                                  <div class="btn-group dashboard-blog-actions text-right">
-                                <a class="btn btn-icon waves-effect btn-success m-b-5" href="{{ trans_url('/user') }}/career/job/{!!$job->getRouteKey()!!}">
+                                <a class="btn btn-icon waves-effect btn-success m-b-5" href="{{ trans_url('careers/resume/job') }}/{!!$job->getPublicKey()!!}">
                                     <i class="fa fa-eye">
                                     </i>
                                 </a>

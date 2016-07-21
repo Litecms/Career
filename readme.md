@@ -1,4 +1,4 @@
-This is a Laravel 5 package that provides career management facility for lavalite framework.
+This is a Litecms 5 package that provides career management facility for lavalite framework.
 
 ## Installation
 
@@ -42,6 +42,9 @@ Views public and admin
 
     php artisan vendor:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --tag="view"
 
+Public folders
+
+    php artisan vendor:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --tag="public"
 
 Publish admin views only if it is necessary.
 

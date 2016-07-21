@@ -47,8 +47,18 @@
                     {!! $job['location'] !!}
             </div>
         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class"form-group">
+                <label for="details">
+                    {!! trans('Image') !!}
+                </label><br />
+                    @if(!empty($job['image']))
+                    <img src="{!!url($job->defaultImage('cr','image'))!!}" class="img-responsive">
+                    @endif
+            </div>
+        </div>
 
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-8 col-sm-6">
             <div class"form-group">
                 <label for="details">
                     {!! trans('career::job.label.details') !!}
@@ -56,16 +66,7 @@
                     {!! $job['details'] !!}
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-            <div class"form-group">
-                <label for="details">
-                    {!! trans('Image') !!}
-                </label><br />
-                    @if(!empty($job['image']))
-                    <img src="{!!URL::to('image/sm/'.@$job['image']['efolder'])!!}/{!!@$job['image']['file']!!}" class="img-responsive">
-                    @endif
-            </div>
-        </div>
+
 
 </div>
 </div>

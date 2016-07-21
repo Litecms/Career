@@ -48,11 +48,27 @@ class JobController extends BasicController
      */
     protected function show($type)
     {
-        $this->repository->pushCriteria(new \Litecms\Career\Repositories\Criteria\JobPublicCriteria());
+        //$this->repository->pushCriteria(new \Litecms\Career\Repositories\Criteria\JobPublicCriteria());
         $jobs = $this->repository->scopeQuery(function ($query) use ($type) {
             return $query->orderBy('title')->whereJobType($type);
         })->all();
 
         return $this->theme->of('career::public.job.index', compact('jobs'))->render();
+    }
+
+    /**
+     * Show job.
+     *
+     * @param string $slug
+     *
+     * @return response
+     */
+    public function views($slug)
+    {
+
+        $job = $this->repository->scopeQuery(function ($query) use ($slug) {
+            return $query->whereSlug($slug);
+        })->first(['*']);
+        return $this->theme->of('career::public.job.show', compact('job'))->render();
     }
 }

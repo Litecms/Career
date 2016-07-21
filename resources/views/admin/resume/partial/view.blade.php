@@ -36,9 +36,8 @@
     <a href="{!!URL::to(@$resume['resume']['folder'])!!}/{!!@$resume['resume']['file']!!}" class="btn btn-primary">view Resume</a>
 </div>
 @endif
-@if($resume['image'])
+
      <div class='col-md-6 col-sm-12'>
       <label>Photo</label>
-          <img src="{!!URL::to('image/sm/'.@$resume['image']['efolder'])!!}/{!!@$resume['image']['file']!!}" class="img-responsive">
+          <img src="{!!url($resume->defaultImage('sm','image'))!!}" class="img-responsive">
      </div>
-@endif
