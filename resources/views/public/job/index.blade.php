@@ -28,7 +28,7 @@
                              @if($align)
                                 <div class="col-sm-6">
 
-                                    <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('cr','image'))!!});"></div>
+                                    <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('career.md','image'))!!});"></div>
 
                                 </div>
                             @endif
@@ -43,7 +43,7 @@
                                 </div>
                                 @if(!$align)
                                 <div class="col-sm-6">
-                                   <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('cr','image'))!!});"></div>
+                                   <div class="career-image" style="background-image: url({!!url(@$job->defaultImage('career.md','image'))!!});"></div>
                                 </div>
                             @endif
 
