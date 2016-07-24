@@ -45,12 +45,24 @@ class CareerTableSeeder extends Seeder
             [
                 'parent_id'   => 1,
                 'key'         => null,
+                'url'         => 'admin/career',
+                'name'        => 'Careers',
+                'description' => null,
+                'icon'        => 'fa fa-briefcase',
+                'target'      => null,
+                'order'       => 130,
+                'status'      => 1,
+            ],
+
+            [
+                'parent_id'   => 1,
+                'key'         => null,
                 'url'         => 'admin/career/job',
                 'name'        => 'Jobs',
                 'description' => null,
                 'icon'        => 'fa fa-briefcase',
                 'target'      => null,
-                'order'       => 1,
+                'order'       => 131,
                 'status'      => 1,
             ],
 
@@ -62,7 +74,7 @@ class CareerTableSeeder extends Seeder
                 'description' => null,
                 'icon'        => 'fa fa-file-pdf-o',
                 'target'      => null,
-                'order'       => 1,
+                'order'       => 132,
                 'status'      => 1,
             ],
 
@@ -74,7 +86,7 @@ class CareerTableSeeder extends Seeder
                 'description' => null,
                 'icon'        => 'icon-briefcase',
                 'target'      => null,
-                'order'       => 1,
+                'order'       => 130,
                 'status'      => 1,
             ],
 
@@ -86,7 +98,7 @@ class CareerTableSeeder extends Seeder
                 'description' => null,
                 'icon'        => null,
                 'target'      => null,
-                'order'       => 1,
+                'order'       => 130,
                 'status'      => 1,
             ],
 
