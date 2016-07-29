@@ -31,16 +31,3 @@
      -> label(trans('career::resume.label.message'))
      -> placeholder(trans('career::resume.placeholder.message'))!!}
 </div>
-
-<div class='col-md-6 col-sm-12'>
- <label>Resume</label>
-     {!!Filer::uploader('resume', @$resume->getUploadURL('resume'),1,'filer::upload','application/pdf')!!}
-      {!!Filer::editor('resume', @$resume['resume'])!!}
-</div>
-
-
-<div class='col-md-6 col-sm-12'>
- <label>Photo</label>
-     {!!Filer::uploader('image', @$resume->getUploadURL('image'),1)!!}
-      {!!Filer::editor('image', @$resume['image'])!!}
-</div>

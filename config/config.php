@@ -28,7 +28,7 @@ return [
             'action'    => 'fit',
             'watermark' => 'img/logo/default.png',
         ],
-        
+
         'md' => [
             'width'     => '370',
             'height'    => '420',
@@ -49,7 +49,6 @@ return [
             'watermark' => 'img/logo/default.png',
         ],
 
-
     ],
     'job'      => [
         'model'         => 'Litecms\Career\Models\Job',
@@ -63,7 +62,7 @@ return [
         'appends'       => [],
         'fillable'      => ['user_id', 'published', 'title', 'job_type', 'image', 'location', 'details', 'upload_folder'],
 
-        'upload-folder' => '/uploads/career/job',
+        'upload_folder' => 'career/job',
         'uploads'       => [
             'single'   => ['image'],
             'multiple' => [],
@@ -92,7 +91,7 @@ return [
         'appends'       => [],
         'fillable'      => ['user_id', 'name', 'email_id', 'mobile', 'message', 'resume', 'image', 'job_id', 'upload_folder'],
 
-        'upload-folder' => '/uploads/career/resume',
+        'upload_folder' => 'career/resume',
         'uploads'       => [
             'single'   => ['resume', 'image'],
             'multiple' => [],

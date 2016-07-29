@@ -22,8 +22,8 @@
                 @include('career::admin.job.partial.entry')
                 <div class='col-md-6 col-sm-12'>
                     <label>Image</label>
-                     {!!Filer::uploader('image',@$job->getUploadURL('image'),1)!!}
-                      {!!Filer::editor('image',@$job['image'],1)!!}
+                    {!!@$job->fileUpload('image')!!}
+
                 </div>
             </div>
         </div>

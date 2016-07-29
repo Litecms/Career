@@ -24,7 +24,18 @@
         ->action(trans_url('admin/career/resume'))!!}
             <div class="tab-content">
                 <div class="tab-pane active" id="details">
-                    @include('career::admin.resume.partial.view')
+                    @include('career::admin.resume.partial.entry')
+                    @if($resume['resume'])
+                    <div class='col-md-6 col-sm-12'>
+                        <a href="{!!URL::to(@$resume['resume']['folder'])!!}/{!!@$resume['resume']['file']!!}" class="btn btn-primary">view Resume</a>
+                    </div>
+                    @endif
+
+                 <div class='col-md-6 col-sm-12'>
+                  <label>Photo</label>
+                      {!!@$resume->fileShow('image')!!}
+                 </div>
+
                 </div>
             </div>
         {!! Form::close() !!}

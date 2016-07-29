@@ -26,6 +26,7 @@ class CreateCareersTable extends Migration
             $table->string('slug', 200)->nullable();
             $table->enum('published', ['Yes', 'No'])->default('No')->nullable();
             $table->enum('status', ['draft', 'published', 'hidden', 'suspended', 'spam'])->default('draft')->nullable();
+            $table->string('user_type', 100)->nullable();
             $table->integer('user_id')->nullable();
             $table->string('upload_folder', 100)->nullable();
             $table->softDeletes();
@@ -47,6 +48,7 @@ class CreateCareersTable extends Migration
             $table->enum('published', ['Yes', 'No'])->default('No')->nullable();
             $table->enum('status', ['draft', 'published', 'hidden', 'suspended', 'spam'])->default('draft')->nullable();
             $table->integer('user_id')->nullable();
+            $table->string('user_type', 250)->nullable();
             $table->string('upload_folder', 100)->nullable();
             $table->softDeletes();
             $table->nullableTimestamps();

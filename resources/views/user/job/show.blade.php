@@ -49,12 +49,10 @@
         </div>
          <div class="col-md-4 col-sm-6">
             <div class"form-group">
-                <label for="details">
-                    {!! trans('Image') !!}
-                </label><br />
-                    @if(!empty($job['image']))
-                    <img src="{!!url($job->defaultImage('cr','image'))!!}" class="img-responsive">
-                    @endif
+                 <div class='col-md-6 col-sm-12'>
+                    <label>Image</label>
+                        {!!@$job->filerShow('image')!!}
+                </div>
             </div>
         </div>
 

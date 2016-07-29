@@ -15,6 +15,11 @@
                 ->files('true')
                 ->action(trans_url('user/career/job') .'/'.$job->getRouteKey())!!}
                     @include('career::user.job.partial.entry')
+                     <div class='col-md-6 col-sm-12'>
+                    <label>Image</label>
+                    {!!@$job->filerUploader('image')!!}
+                      {!!@$job->filerEditor('image')!!}
+                </div>
                      <div class="row m-t-20">
                         <div class="col-md-12">
                             <button class="btn btn-sm btn-danger waves-effect w-md waves-light text-uppercase">Update Job</button>

@@ -88,8 +88,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="name">Upload Resume</label>
-                                     {!!Filer::uploader('resume', @$resume->getUploadURL('resume'),1,'filer::upload','application/pdf')!!}
-                                    {!!Filer::editor('resume', @$resume['resume'],1)!!}
+                                        {!!@$resume->fileUpload('resume')->mime('pdf')!!}
+                                        {!!@$resume->fileEdit('resume')->mime('pdf')!!}
 
                                 </div>
                             </div>
@@ -97,8 +97,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="name">Upload Picture</label>
-                                       {!!Filer::uploader('image', @$resume->getUploadURL('image'),1)!!}
-                                       {!!Filer::editor('image', @$resume['image'],1)!!}
+                                       {!!@$resume->fileUpload('image')!!}
+                                        {!!@$resume->fileEdit('image')!!}
 
                                 </div>
                             </div>

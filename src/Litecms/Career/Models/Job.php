@@ -10,17 +10,17 @@ use Litepie\Hashids\Traits\Hashids;
 use Litepie\Repository\Traits\PresentableTrait;
 use Litepie\Revision\Traits\Revision;
 use Litepie\Trans\Traits\Trans;
+use Litepie\User\Traits\UserModel;
 
 class Job extends Model
 {
-    use Filer, SoftDeletes, Hashids, Slugger, Trans, Revision, PresentableTrait;
+    use Filer, SoftDeletes, Hashids, Slugger, Trans, Revision, PresentableTrait, UserModel;
 
     /**
      * Configuartion for the model.
      *
      * @var array
      */
-     protected $config = 'package.career.job';
-
+    protected $config = 'package.career.job';
 
 }
