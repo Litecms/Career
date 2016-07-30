@@ -24,8 +24,8 @@
 
                 <div class='col-md-6 col-sm-12'>
                  <label>Resume</label>
-                    {!!@$resume->fileUpload('resume')->setMime('pdf')!!}
-                     {!!@$resume->fileEdit('resume')->setMime('pdf')!!}!!}
+                    {!!@$resume->fileUpload('resume')->mime('pdf','doc','docx')!!}
+                     {!!@$resume->fileEdit('resume')!!}!!}
                 </div>
 
 

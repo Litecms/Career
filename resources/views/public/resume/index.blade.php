@@ -88,8 +88,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="name">Upload Resume</label>
-                                        {!!@$resume->fileUpload('resume')->mime('pdf')!!}
-                                        {!!@$resume->fileEdit('resume')->mime('pdf')!!}
+                                        {!!@$resume->fileUpload('resume')->mime('.pdf,.doc,.docx')!!}
+                                        {!!@$resume->fileEdit('resume')!!}
 
                                 </div>
                             </div>

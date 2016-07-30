@@ -103,6 +103,7 @@ class ResumeUserApiController extends BaseController
         try {
             $attributes = $request->all();
             $attributes['user_id'] = user_id('admin.api');
+            $attributes['user_type'] = user_type();
             $resume = $this->repository->create($attributes);
             $resume = $resume->presenter();
             $resume['code'] = 2004;

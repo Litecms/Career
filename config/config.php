@@ -60,7 +60,7 @@ return [
         'slugs'         => ['slug' => 'title'],
         'dates'         => ['deleted_at'],
         'appends'       => [],
-        'fillable'      => ['user_id', 'published', 'title', 'job_type', 'image', 'location', 'details', 'upload_folder'],
+        'fillable'      => ['user_id', 'user_type', 'published', 'title', 'job_type', 'image', 'location', 'details', 'upload_folder'],
 
         'upload_folder' => 'career/job',
         'uploads'       => [
@@ -89,7 +89,7 @@ return [
         'slugs'         => ['slug' => 'name'],
         'dates'         => ['deleted_at'],
         'appends'       => [],
-        'fillable'      => ['user_id', 'name', 'email_id', 'mobile', 'message', 'resume', 'image', 'job_id', 'upload_folder'],
+        'fillable'      => ['user_id', 'user_type', 'name', 'email_id', 'mobile', 'message', 'resume', 'image', 'job_id', 'upload_folder'],
 
         'upload_folder' => 'career/resume',
         'uploads'       => [

@@ -99,6 +99,7 @@ class JobAdminApiController extends BaseController
         try {
             $attributes = $request->all();
             $attributes['user_id'] = user_id('admin.api');
+            $attributes['user_type'] = user_type();
             $job = $this->repository->create($attributes);
             $job = $job->presenter();
             $job['code'] = 2004;
