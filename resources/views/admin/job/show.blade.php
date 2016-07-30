@@ -30,11 +30,12 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="info">
                     @include('career::admin.job.partial.entry')
-                     <div class='col-md-6 col-sm-12'>
-                    <label>Image</label>
-
-                    <img src="{!!url($job->defaultImage('sm','image'))!!}" class="img-responsive">
-                </div>
+                     <div class='col-md-12 col-sm-12'>
+                       <label>Image</label>
+                    </div>  
+                    <div class='col-md-12 col-sm-12'> 
+                       <di>{!!@$job->fileShow('image')!!}</div>
+                    </div>
                 </div>
             </div>
         {!! Form::close() !!}

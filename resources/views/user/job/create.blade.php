@@ -18,6 +18,11 @@
                 ->files('true')
                 ->action(trans_url('user/career/job'))!!}
             @include('career::user.job.partial.entry')
+             <div class='col-md-6 col-sm-12'>
+                    <label>Image</label>
+                    {!!@$job->fileUpload('image')!!}
+
+                </div>
 
                 <div class=" m-t-20">
                     <div class="col-md-12">

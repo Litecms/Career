@@ -26,9 +26,5 @@
                      -> label(trans('career::job.label.details'))
                      -> placeholder(trans('career::job.placeholder.details'))!!}
               </div>
-              <div class='col-md-6 col-sm-12'>
-                    <label>Image</label>
-                     {!!Filer::uploader('image',@$job->getUploadURL('image'),1)!!}
-                      {!!Filer::editor('image',@$job['image'],1)!!}
-                </div>
+
 {!! Form::hidden('upload_folder')!!}

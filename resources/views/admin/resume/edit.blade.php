@@ -21,6 +21,20 @@
         <div class="tab-content">
             <div class="tab-pane active" id="resume">
                 @include('career::admin.resume.partial.entry')
+
+                <div class='col-md-6 col-sm-12'>
+                 <label>Resume</label>
+                    {!!@$resume->fileUpload('resume')->setMime('pdf')!!}
+                     {!!@$resume->fileEdit('resume')->setMime('pdf')!!}!!}
+                </div>
+
+
+                <div class='col-md-6 col-sm-12'>
+                 <label>Photo</label>
+                    {!!@$resume->fileUpload('image')!!}
+                    {!!@$resume->fileEdit('image')!!}
+                </div>
+
             </div>
         </div>
         {!!Form::close()!!}
