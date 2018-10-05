@@ -25,12 +25,12 @@ class CreateCareerJobsTable extends Migration
             $table->string('location', 255)->nullable();
             $table->string('salary', 255)->nullable();
             $table->text('details')->nullable();
-            $table->string('responsibilities', 255)->nullable();
-            $table->string('qualifications', 255)->nullable();
+            $table->text('responsibilities')->nullable();
+            $table->text('qualifications')->nullable();
             $table->text('image')->nullable();
             $table->string('slug', 255)->nullable();
             $table->enum('published', ['Yes', 'No'])->nullable();
-            $table->enum('status', ['draft', 'published', 'hidden', 'suspended', 'spam'])->nullable();
+            $table->enum('status', ['Show', 'Hide'])->nullable();
             $table->date('last_date')->nullable();
             $table->string('user_type', 255)->nullable();
             $table->integer('user_id')->nullable();

@@ -25,7 +25,7 @@ class CreateCareerResumesTable extends Migration
             $table->integer('mobile')->nullable();
             $table->string('message', 255)->nullable();
             $table->text('resume')->nullable();
-            $table->string('image', 255)->nullable();
+            $table->text('image')->nullable();
             $table->integer('job_id')->nullable();
             $table->string('slug', 255)->nullable();
             $table->enum('published', ['Yes','No'])->nullable();

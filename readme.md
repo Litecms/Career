@@ -11,7 +11,7 @@ Begin by installing this package through Composer.
 ## Migration and seeds
 
     php artisan migrate
-    php artisan db:seed --class=Litecms\\CareerTableSeeder
+    php artisan db:seed --class=Litecms\\CareersTableSeeder
 
 ## Publishing files
 
