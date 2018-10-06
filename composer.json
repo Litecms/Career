@@ -27,7 +27,7 @@
                 "Litecms\\Career\\Providers\\CareerServiceProvider"
             ],
             "aliases": {
-                "Career"       : "Litecms\\Career\\Facades"
+                "Career"       : "Litecms\\Career\\Facades\\Career"
             }
         }
     },

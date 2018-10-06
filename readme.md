@@ -1,19 +1,15 @@
-Laravel package that provides career management facility for the lavalite cms.
+Laravel package that provides career management facility for lavalite CMS.
 
 ## Installation
 
-Begin by installing this package through Composer.
-
+Require this package with composer. 
 
     composer require litecms/career
 
+Laravel 5.5 uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
 
-## Migration and seeds
 
-    php artisan migrate
-    php artisan db:seed --class=Litecms\\CareersTableSeeder
-
-## Publishing files
+## Publishing
 
 **Configuration**
 
@@ -23,19 +19,20 @@ Begin by installing this package through Composer.
 
     php artisan vendor:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --tag="lang"
 
+**Files**
+
+    php artisan vendor:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --tag="storage"
 
 ### Views
 
-Publishes views to resources/vendor
+Publish views to resources\views\vendor directory
 
     php artisan vendor:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --tag="view"
-
 
 Publishes admin view to admin theme
 
     php artisan theme:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --view="admin" --theme="admin"
 
-
-Publishes public view
+Publishes public view to public theme
 
     php artisan theme:publish --provider="Litecms\Career\Providers\CareerServiceProvider" --view="public" --theme="public"
