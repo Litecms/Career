@@ -5,7 +5,7 @@ namespace Litecms;
 use DB;
 use Illuminate\Database\Seeder;
 
-class CareersTableSeeder extends Seeder
+class CareerTableSeeder extends Seeder
 {
     public function run()
     {
