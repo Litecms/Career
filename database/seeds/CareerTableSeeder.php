@@ -131,19 +131,7 @@ Medical Scribing Training is a profound idea in the modern healthcare sector. Th
                 'order'       => 190,
                 'status'      => 1,
             ],
-
-            [
-                'parent_id'   => 3,
-                'key'         => null,
-                'url'         => 'job',
-                'name'        => 'Job',
-                'description' => null,
-                'icon'        => null,
-                'target'      => null,
-                'order'       => 190,
-                'status'      => 1,
-            ],
-
+            
             [
                 'parent_id'   => 1,
                 'key'         => null,
@@ -155,7 +143,31 @@ Medical Scribing Training is a profound idea in the modern healthcare sector. Th
                 'order'       => 190,
                 'status'      => 1,
             ],
-        ]);
+ 
+            [
+                'parent_id'   => 3,
+                'key'         => null,
+                'url'         => 'jobs',
+                'name'        => 'Career',
+                'description' => null,
+                'icon'        => null,
+                'target'      => null,
+                'order'       => 190,
+                'status'      => 1,
+            ],
+            [
+                'parent_id'   => 4,
+                'key'         => null,
+                'url'         => 'jobs',
+                'name'        => 'Career',
+                'description' => null,
+                'icon'        => null,
+                'target'      => null,
+                'order'       => 190,
+                'status'      => 1,
+            ],
+
+       ]);
 
         DB::table('settings')->insert([
             // Uncomment  and edit this section for entering value to settings table.
