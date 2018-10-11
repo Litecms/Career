@@ -48,7 +48,7 @@ class JobResourceController extends BaseController
 
         $jobs = $this->repository->paginate();
 
-        return $this->response->title(trans('career::job.names'))
+        return $this->response->setMetaTitle(trans('career::job.names'))
             ->view('career::job.index', true)
             ->data(compact('jobs'))
             ->output();
@@ -71,7 +71,7 @@ class JobResourceController extends BaseController
             $view = 'career::job.new';
         }
 
-        return $this->response->title(trans('app.view') . ' ' . trans('career::job.name'))
+        return $this->response->setMetaTitle(trans('app.view') . ' ' . trans('career::job.name'))
             ->data(compact('job'))
             ->view($view, true)
             ->output();
@@ -88,7 +88,7 @@ class JobResourceController extends BaseController
     {
 
         $job = $this->repository->newInstance([]);
-        return $this->response->title(trans('app.new') . ' ' . trans('career::job.name')) 
+        return $this->response->setMetaTitle(trans('app.new') . ' ' . trans('career::job.name')) 
             ->view('career::job.create', true) 
             ->data(compact('job'))
             ->output();
@@ -134,7 +134,7 @@ class JobResourceController extends BaseController
      */
     public function edit(JobRequest $request, Job $job)
     {
-        return $this->response->title(trans('app.edit') . ' ' . trans('career::job.name'))
+        return $this->response->setMetaTitle(trans('app.edit') . ' ' . trans('career::job.name'))
             ->view('career::job.edit', true)
             ->data(compact('job'))
             ->output();

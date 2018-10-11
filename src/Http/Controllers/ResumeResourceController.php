@@ -48,7 +48,7 @@ class ResumeResourceController extends BaseController
 
         $resumes = $this->repository->paginate();
         
-         return $this->response->title(trans('career::resume.names'))
+         return $this->response->setMetaTitle(trans('career::resume.names'))
             ->view('career::resume.index', true)
             ->data(compact('resumes'))
             ->output();
@@ -71,7 +71,7 @@ class ResumeResourceController extends BaseController
             $view = 'career::resume.new';
         }
 
-        return $this->response->title(trans('app.view') . ' ' . trans('career::resume.name'))
+        return $this->response->setMetaTitle(trans('app.view') . ' ' . trans('career::resume.name'))
             ->data(compact('resume'))
             ->view($view, true)
             ->output();
@@ -88,7 +88,7 @@ class ResumeResourceController extends BaseController
     {
 
         $resume = $this->repository->newInstance([]);
-        return $this->response->title(trans('app.new') . ' ' . trans('career::resume.name')) 
+        return $this->response->setMetaTitle(trans('app.new') . ' ' . trans('career::resume.name')) 
             ->view('career::resume.create', true) 
             ->data(compact('resume'))
             ->output();
@@ -134,7 +134,7 @@ class ResumeResourceController extends BaseController
      */
     public function edit(ResumeRequest $request, Resume $resume)
     {
-        return $this->response->title(trans('app.edit') . ' ' . trans('career::resume.name'))
+        return $this->response->setMetaTitle(trans('app.edit') . ' ' . trans('career::resume.name'))
             ->view('career::resume.edit', true)
             ->data(compact('resume'))
             ->output();

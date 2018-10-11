@@ -39,7 +39,7 @@ class ResumePublicController extends BaseController
         })->paginate();
 
 
-        return $this->response->title(trans('career::resume.names'))
+        return $this->response->setMetaTitle(trans('career::resume.names'))
             ->view('career::public.resume.index')
             ->data(compact('resumes'))
             ->output();
@@ -61,7 +61,7 @@ class ResumePublicController extends BaseController
         })->paginate();
 
 
-        return $this->response->title(trans('career::resume.names'))
+        return $this->response->setMetaTitle(trans('career::resume.names'))
             ->view('career::public.resume.index')
             ->data(compact('resumes'))
             ->output();
@@ -81,7 +81,7 @@ class ResumePublicController extends BaseController
                          ->where('slug', $slug);
         })->first(['*']);
 
-        return $this->response->title($$resume->name . trans('career::resume.name'))
+        return $this->response->setMetaTitle($$resume->name . trans('career::resume.name'))
             ->view('career::public.resume.show')
             ->data(compact('resume'))
             ->output();

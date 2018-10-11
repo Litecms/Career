@@ -147,7 +147,7 @@ Medical Scribing Training is a profound idea in the modern healthcare sector. Th
             [
                 'parent_id'   => 3,
                 'key'         => null,
-                'url'         => 'jobs',
+                'url'         => 'careers',
                 'name'        => 'Career',
                 'description' => null,
                 'icon'        => null,
@@ -158,7 +158,7 @@ Medical Scribing Training is a profound idea in the modern healthcare sector. Th
             [
                 'parent_id'   => 4,
                 'key'         => null,
-                'url'         => 'jobs',
+                'url'         => 'careers',
                 'name'        => 'Career',
                 'description' => null,
                 'icon'        => null,

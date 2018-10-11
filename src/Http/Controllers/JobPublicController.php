@@ -38,7 +38,7 @@ class JobPublicController extends BaseController
         })->paginate();
 
 
-        return $this->response->title(trans('career::job.names'))
+        return $this->response->setMetaTitle(trans('career::job.names'))
             ->view('career::public.job.index')
             ->data(compact('jobs'))
             ->output();
@@ -60,7 +60,7 @@ class JobPublicController extends BaseController
         })->paginate();
 
 
-        return $this->response->title(trans('career::job.names'))
+        return $this->response->setMetaTitle(trans('career::job.names'))
             ->view('career::public.job.index')
             ->data(compact('jobs'))
             ->output();
@@ -80,7 +80,7 @@ class JobPublicController extends BaseController
                          ->where('slug', $slug);
         })->first(['*']);
 
-        return $this->response->title(trans('career::job.name'))
+        return $this->response->setMetaTitle(trans('career::job.name'))
             ->view('career::public.job.show')
             ->data(compact('job'))
             ->output();
@@ -94,7 +94,7 @@ class JobPublicController extends BaseController
                          ->where('slug', $slug);
         })->first(['*']);
         
-           return $this->response->title(trans('career::resume.resume'))
+           return $this->response->setMetaTitle(trans('career::resume.resume'))
                ->view('career::public.job.resume')
                ->data(compact('resume'))
                ->output();
