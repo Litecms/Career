@@ -46,19 +46,19 @@ class Career
      *
      * @return View
      */
-    public function gadget($view = 'admin.resume.gadget', $count = 10)
-    {
+    // public function gadget($view = 'admin.resume.gadget', $count = 10)
+    // {
 
-        if (User::hasRole('user')) {
-            $this->resume->pushCriteria(new \Litepie\Litecms\Repositories\Criteria\ResumeUserCriteria());
-        }
+    //     if (User::hasRole('user')) {
+    //         $this->resume->pushCriteria(new \Litepie\Litecms\Repositories\Criteria\ResumeUserCriteria());
+    //     }
 
-        $resume = $this->resume->scopeQuery(function ($query) use ($count) {
-            return $query->orderBy('id', 'DESC')->take($count);
-        })->all();
+    //     $resume = $this->resume->scopeQuery(function ($query) use ($count) {
+    //         return $query->orderBy('id', 'DESC')->take($count);
+    //     })->all();
 
-        return view('career::' . $view, compact('resume'))->render();
-    }
+    //     return view('career::' . $view, compact('resume'))->render();
+    // }
     /**
      * Make gadget View
      *
@@ -80,5 +80,10 @@ class Career
         })->all();
 
         return view('career::' . $view, compact('job'))->render();
+    }
+
+    public function jobs()
+    {
+        return $this->job->jobs();
     }
 }

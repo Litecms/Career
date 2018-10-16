@@ -33,8 +33,8 @@ return [
      */
     'options'     => [
         'published' => ['Yes' => 'Yes', 'No' => 'No'],
-        'status'    => ['draft' => 'draft', 'published' => 'published', 'hidden' => 'hidden', 'suspended' => 'suspended', 'spam' => 'spam'],
-        'job_type'  => ['Full_time' => 'Full_time', 'Part_time' => 'Part_time', 'Contract' => 'Contract'],
+        
+        'job_type'  => ['Full Time' => 'Full Time', 'Part Time' => 'Part Time', 'Contract' => 'Contract'],
     ],
 
     /**
@@ -94,11 +94,8 @@ return [
         'title'     => ['name' => 'Title', 'data-column' => 1, 'checked'],
         'job_type'  => ['name' => 'Job type', 'data-column' => 2, 'checked'],
         'location'  => ['name' => 'Location', 'data-column' => 3, 'checked'],
-        'salary'    => ['name' => 'Salary', 'data-column' => 4, 'checked'],
-        'last_date' => ['name' => 'Last_date', 'data-column' => 5, 'checked'],
-        'image'     => ['name' => 'Image', 'data-column' => 6, 'checked'],
-        'published' => ['name' => 'Published', 'data-column' => 7, 'checked'],
-        'status'    => ['name' => 'Status', 'data-column' => 8, 'checked'],
+        'last_date' => ['name' => 'Last_date', 'data-column' => 4, 'checked'],
+        'published' => ['name' => 'Published', 'data-column' => 5, 'checked'],
     ],
 
     /**

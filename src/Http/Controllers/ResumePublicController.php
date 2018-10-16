@@ -88,10 +88,13 @@ class ResumePublicController extends BaseController
     }
 
      protected function upload(Request $request)
-        {
+        { 
                try
                    {
                        $attributes = $request->all();
+                       // $target_dir = storage_path('uploads/');
+                       //  $target_file = $target_dir . basename($_FILES["resume"]["name"]); 
+                       // move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file);
                        $resume = $this->repository->create($attributes);
                        return redirect(trans_url('/careers'));
                    }

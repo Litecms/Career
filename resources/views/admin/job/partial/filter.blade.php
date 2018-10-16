@@ -83,38 +83,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                     
-                                    <label for="search[location]" class="col-sm-2 control-label">
-                                        {!! trans('career::job.label.location')!!}
-                                    </label>
-                                    <div class="col-sm-10">
-                                        {!! Form::text('search[location]')->raw()!!}
-                                    </div>
-                                </div>
+                                
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                     
-                                    <label for="search[details]" class="col-sm-2 control-label">
-                                        {!! trans('career::job.label.details')!!}
-                                    </label>
-                                    <div class="col-sm-10">
-                                        {!! Form::text('search[details]')->raw()!!}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                     
-                                    <label for="search[image]" class="col-sm-2 control-label">
-                                        {!! trans('career::job.label.image')!!}
-                                    </label>
-                                    <div class="col-sm-10">
-                                        {!! Form::text('search[image]')->raw()!!}
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                      
@@ -126,17 +98,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                     
-                                    <label for="search[status]" class="col-sm-2 control-label">
-                                        {!! trans('career::job.label.status')!!}
-                                    </label>
-                                    <div class="col-sm-10">
-                                        {!! Form::text('search[status]')->raw()!!}
-                                    </div>
-                                </div>
-                            </div>
+                            
                             </div>
                         </div>
                     </div>

@@ -57,6 +57,10 @@ return [
             'search'        => [
                 'name'  => 'like',
                 'status',
+                'job_id' =>'like',
+                'email' =>'like',
+                'mobile' =>'like',
+
             ]
         ],
 
@@ -79,7 +83,7 @@ return [
             'slugs'                 => ['slug' => 'title'],
             'dates'                 => ['deleted_at', 'createdat', 'updated_at', 'last_date'],
             'appends'               => [],
-            'fillable'              => ['id',  'title',  'company', 'job_type',  'location', 'salary', 'details',  'responsibilities', 'qualifications', 'image',  'slug',  'published',  'status', 'last_date',  'user_type',  'user_id',   'created_at',  'updated_at',  'deleted_at'],
+            'fillable'              => ['id',  'title',  'company', 'job_type',  'location', 'salary', 'details',  'responsibilities', 'qualifications', 'image',  'slug',  'published',  'last_date',  'user_type',  'user_id',   'created_at',  'updated_at',  'deleted_at'],
             'translatables'         => [],
             'upload_folder'         => 'career/job',
             'uploads'               => [
@@ -105,8 +109,9 @@ return [
             'revision'              => [],
             'perPage'               => '20',
             'search'        => [
-                'name'  => 'like',
-                'status',
+                'title'  => 'like',
+                'published'=> 'like',
+                'job_type'=> 'like',
             ]
         ],
 

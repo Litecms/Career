@@ -47,7 +47,7 @@ return [
         'message'                    => 'Please enter message',
         'resume'                     => 'Please enter resume',
         'image'                      => 'Please enter image',
-        'job_id'                     => 'Please enter job id',
+        'job_id'                     => 'Please enter job',
         'slug'                       => 'Please enter slug',
         'published'                  => 'Please select published',
         
@@ -68,7 +68,7 @@ return [
         'message'                    => 'Message',
         'resume'                     => 'Resume',
         'image'                      => 'Image',
-        'job_id'                     => 'Job id',
+        'job_id'                     => 'Job',
         'slug'                       => 'Slug',
         'published'                  => 'Published',
         
@@ -87,12 +87,7 @@ return [
         'email'                      => ['name' => 'Email', 'data-column' => 2, 'checked'],
         'mobile'                     => ['name' => 'Mobile', 'data-column' => 3, 'checked'],
         'message'                    => ['name' => 'Message', 'data-column' => 4, 'checked'],
-        'resume'                     => ['name' => 'Resume', 'data-column' => 5, 'checked'],
-        'image'                      => ['name' => 'Image', 'data-column' => 6, 'checked'],
-        'job_id'                     => ['name' => 'Job id', 'data-column' => 7, 'checked'],
-        'published'                  => ['name' => 'Published', 'data-column' => 8, 'checked'],
-        'status'                     => ['name' => 'Status', 'data-column' => 9, 'checked'],
-        'uploaded_folder'            => ['name' => 'Uploaded folder', 'data-column' => 10, 'checked'],
+        'job_id'                     => ['name' => 'Job', 'data-column' => 5, 'checked'],
     ],
 
     /**

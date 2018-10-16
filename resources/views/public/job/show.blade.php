@@ -21,15 +21,7 @@
                                             <li><i class="ti-calendar"></i> Post Date: {{format_date($job['created_at'])}}</li>
                                             <li><i class="ti-calendar"></i> Apply Before: {{ format_date($job['last_date']) }}</li>
                                         </ul>
-                                        <div class="footer">
-                                            <a href="https://mail.google.com/mail/" class="email-job-btn"><i class="fa fa-envelope"></i> Email Job</a>
-                                            <ul class="share">
-                                                <li><span>Share:</span></li>
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
+                                        
                                     </div>
 
                                     <div class="details">

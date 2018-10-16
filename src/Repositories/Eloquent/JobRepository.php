@@ -24,4 +24,14 @@ class JobRepository extends BaseRepository implements JobRepositoryInterface
     {
         return config('litecms.career.job.model.model');
     }
+
+    public function updatePublish($id, $attribute)
+    {
+        return $this->model->where('id', $id)->update($attribute);
+    }
+
+    public function jobs()
+    {
+        return $this->model->pluck('title','id');
+    }
 }

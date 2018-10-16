@@ -29,8 +29,6 @@ class CreateCareerResumesTable extends Migration
             $table->integer('job_id')->nullable();
             $table->string('slug', 255)->nullable();
             $table->enum('published', ['Yes','No'])->nullable();
-           
-            
             $table->string('uploaded_folder', 255)->nullable();
             $table->softDeletes();
             $table->nullableTimestamps();

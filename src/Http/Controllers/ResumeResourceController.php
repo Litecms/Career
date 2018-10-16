@@ -263,4 +263,20 @@ class ResumeResourceController extends BaseController
 
     }
 
+     public function download($id)
+    {
+        $id = hashids_decode($id);
+        $resume = $this->repository->scopeQuery(function($query) use ($id) {
+            return $query->orderBy('id','DESC')
+                         ->where('id', $id);
+        })->first(['*']);
+
+        $files = $resume->resume;
+        foreach($files as $file)
+        {
+            $file=$file['path'];
+        } 
+      return response()->download(storage_path("uploads/{$file}"));
+    }
+
 }

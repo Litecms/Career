@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-file-text-o"></i> {!! trans('career::resume.name') !!} <small> {!! trans('app.manage') !!} {!! trans('career::resume.names') !!}</small>
+            <i class="fa fa-file-text-o"></i> Careers <small> {!! trans('app.manage') !!} {!! trans('career::resume.names') !!}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!! guard_url('/') !!}"><i class="fa fa-dashboard"></i> {!! trans('app.home') !!} </a></li>
@@ -16,9 +16,9 @@
     </div>
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                    <li class="{!!(request('status') == '')?'active':'';!!}"><a href="{!!guard_url('career/resume')!!}">{!! trans('career::resume.names') !!}</a></li>
-                    <li class="{!!(request('status') == 'archive')?'active':'';!!}"><a href="{!!guard_url('career/resume?status=archive')!!}">Archived</a></li>
-                    <li class="{!!(request('status') == 'deleted')?'active':'';!!}"><a href="{!!guard_url('career/resume?status=deleted')!!}">Trashed</a></li>
+                    <li class="{!!(request('status') == 'archive')?'active':'';!!}"><a href="{!!guard_url('career/job')!!}">Job</a></li>
+                    <li class="{!!(request('status') == '')?'active':'';!!}"><a href="{!!guard_url('career/resume')!!}">Resume</a></li>
+                    
                     <li class="pull-right">
                     <span class="actions">
                     <!--   
@@ -38,11 +38,8 @@
                     <th data-field="email">{!! trans('career::resume.label.email')!!}</th>
                     <th data-field="mobile">{!! trans('career::resume.label.mobile')!!}</th>
                     <th data-field="message">{!! trans('career::resume.label.message')!!}</th>
-                    <th data-field="resume">{!! trans('career::resume.label.resume')!!}</th>
-                    
                     <th data-field="job_id">{!! trans('career::resume.label.job_id')!!}</th>
                     
-                    <th data-field="uploaded_folder">{!! trans('career::resume.label.uploaded_folder')!!}</th>
                     </thead>
                 </table>
             </div>
@@ -94,11 +91,9 @@ $(document).ready(function(){
             {data :'email'},
             {data :'mobile'},
             {data :'message'},
-            {data :'resume'},
             
             {data :'job_id'},
             
-            {data :'uploaded_folder'},
         ],
         "pageLength": 25
     });

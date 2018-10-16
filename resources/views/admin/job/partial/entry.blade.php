@@ -1,11 +1,11 @@
             <div class='row'>
-                <div class='col-md-4 col-sm-6'>
+                <div class='col-md-6 col-sm-6'>
                        {!! Form::text('title')
                        -> label(trans('career::job.label.title'))
                        ->required()
                        -> placeholder(trans('career::job.placeholder.title'))!!}
                 </div>
-                <div class='col-md-4 col-sm-6'>
+                <div class='col-md-6 col-sm-6'>
                        {!! Form::text('company')
                        -> label(trans('career::job.label.company'))
                        ->required()
@@ -30,26 +30,13 @@
                        ->required()
                        -> placeholder(trans('career::job.placeholder.salary'))!!}
                 </div>
-
+                        
                  <div class='col-md-4 col-sm-6'>
-                            {!! Form::select('published')
-                            -> options(trans('career::job.options.published'))
-                            -> label(trans('career::job.label.published'))
-                            -> placeholder(trans('career::job.placeholder.published'))!!}
-                       </div>
-
-                        <div class='col-md-4 col-sm-6'>
-                            {!! Form::select('status')
-                            -> options(trans('career::job.options.status'))
-                            -> label(trans('career::job.label.status'))
-                            -> placeholder(trans('career::job.placeholder.status'))!!}
-                       </div>
-                       <div class='col-md-4 col-sm-6'>
-                            {!! Form::date('last_date')
-                            -> label(trans('career::job.label.last_date'))
-                            ->required()
-                            -> placeholder(trans('career::job.placeholder.last_date'))!!}
-                       </div>
+                      {!! Form::date('last_date')
+                      -> label(trans('career::job.label.last_date'))
+                      ->required()
+                      -> placeholder(trans('career::job.placeholder.last_date'))!!}
+                 </div>
                 
 
                 <div class='col-md-12 col-sm-12'>

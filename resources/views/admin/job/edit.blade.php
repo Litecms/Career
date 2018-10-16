@@ -15,7 +15,7 @@
         ->action(guard_url('career/job/'. $job->getRouteKey()))!!}
         <div class="tab-content clearfix">
             <div class="tab-pane active" id="job">
-                <div class="tab-pan-title">  {{ trans('app.edit') }}  {!! trans('career::job.name') !!} [{!!$job->name!!}] </div>
+                <div class="tab-pan-title">  {{ trans('app.edit') }}  {!! trans('career::job.name') !!} [{!!$job->title!!}] </div>
                 @include('career::admin.job.partial.entry', ['mode' => 'edit'])
             </div>
         </div>

@@ -263,4 +263,29 @@ class JobResourceController extends BaseController
 
     }
 
+    public function publish($id , $data )
+    {
+        $id = hashids_decode($id);
+        $job = $this->repository->scopeQuery(function($query) use ($id) {
+            return $query->orderBy('id','DESC')
+                         ->where('id', $id);
+        })->first(['*']);
+
+        if($data == 'unpublish'){
+            $attribute['published'] = 'No'; 
+        }
+        else{
+            $attribute['published'] = 'Yes';
+          
+
+        }
+        $this->repository->updatePublish($id, $attribute);
+
+        return $this->response->message(trans('messages.success.updated', ['Module' => trans('career::job.name')]))
+                ->code(204)
+                ->status('success')
+                ->url(guard_url('career/job/' . $job->getRouteKey()))
+                ->redirect();
+    }
+
 }

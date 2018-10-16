@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-file-text-o"></i> {!! trans('career::job.name') !!} <small> {!! trans('app.manage') !!} {!! trans('career::job.names') !!}</small>
+            <i class="fa fa-file-text-o"></i> Careers <small> {!! trans('app.manage') !!} {!! trans('career::job.names') !!}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!! guard_url('/') !!}"><i class="fa fa-dashboard"></i> {!! trans('app.home') !!} </a></li>
@@ -17,8 +17,8 @@
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                     <li class="{!!(request('status') == '')?'active':'';!!}"><a href="{!!guard_url('career/job')!!}">{!! trans('career::job.names') !!}</a></li>
-                    <li class="{!!(request('status') == 'archive')?'active':'';!!}"><a href="{!!guard_url('career/job?status=archive')!!}">Archived</a></li>
-                    <li class="{!!(request('status') == 'deleted')?'active':'';!!}"><a href="{!!guard_url('career/job?status=deleted')!!}">Trashed</a></li>
+                    <li class="{!!(request('status') == 'archive')?'active':'';!!}"><a href="{!!guard_url('career/resume')!!}">Resume</a></li>
+                    
                     <li class="pull-right">
                     <span class="actions">
                     <!--   
@@ -37,10 +37,8 @@
                         <th data-field="title">{!! trans('career::job.label.title')!!}</th>
                     <th data-field="job_type">{!! trans('career::job.label.job_type')!!}</th>
                     <th data-field="location">{!! trans('career::job.label.location')!!}</th>
-                    <th data-field="details">{!! trans('career::job.label.details')!!}</th>
-                    <th data-field="image">{!! trans('career::job.label.image')!!}</th>
+                    <th data-field="location">{!! trans('career::job.label.last_date')!!}</th>
                     <th data-field="published">{!! trans('career::job.label.published')!!}</th>
-                    <th data-field="status">{!! trans('career::job.label.status')!!}</th>
                     </thead>
                 </table>
             </div>
@@ -91,10 +89,8 @@ $(document).ready(function(){
             {data :'title'},
             {data :'job_type'},
             {data :'location'},
-            {data :'details'},
-            {data :'image'},
+            {data :'last_date'},
             {data :'published'},
-            {data :'status'},
         ],
         "pageLength": 25
     });

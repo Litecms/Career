@@ -17,7 +17,7 @@ class ResumeTransformer extends TransformerAbstract
             'message'           => $resume->message,
             'resume'            => $resume->resume,
             'image'             => $resume->image,
-            'job_id'            => $resume->job_id,
+            'job_id'            => @$resume->job->title,
             'slug'              => $resume->slug,
             'published'         => $resume->published,
             'status'            => $resume->status,

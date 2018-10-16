@@ -18,6 +18,7 @@ class JobTransformer extends TransformerAbstract
             'image'             => $job->image,
             'slug'              => $job->slug,
             'published'         => $job->published,
+            'last_date'         => format_date($job->last_date),
             'status'            => $job->status,
             'user_type'         => $job->user_type,
             'user_id'           => $job->user_id,
