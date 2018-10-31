@@ -7,6 +7,7 @@
                     <div class="jobs">
                         <div class="row">
                             <div class="col-md-12">
+                                @include('notifications')
                                 <div class="jobs-table">
                                     @foreach($jobs as $job)
                                     <div class="table-row">

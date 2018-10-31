@@ -1,182 +1,98 @@
 
-       @include('career::public.job.partial.header')
+@include('career::public.job.partial.header')
 
+<section class="content bg-grey">
+    <div class="jobs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="post-wrapper">
+                        <div class="header">
+                            <div class="title clearfix">
+                                <h3>{{$job['title']}}</h3>
+                                <label class="badge full-time">Full Time</label>
+                                <h4>Company : {{$job['company']}}</h4>
+                            </div>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> {{$job['location']}}</p>
+                            <ul class="tags clearfix">
+                                <li><i class="fas fa-money-bill-wave"></i> Salary: <span>{{$job['salary']}}</span></li>
+                                <li><i class="fas fa-calendar"></i> Post Date: {{ format_date($job['created_at']) }}</li>
+                                <li><i class="fas fa-calendar"></i> Apply Before: {{ format_date($job['last_date']) }}</li>
+                            </ul>
 
-            <section class="content bg-grey">
-                <div class="jobs">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="post-wrapper">
-                                    <div class="header">
-                                        <div class="title clearfix">
-                                            <h3>{{$job['title']}}</h3>
-                                            
-                                            <label class="badge full-time">{{$job['job_type']}}</label>
-                                            <h4>Company : {{$job['company']}}</h4>
-                                        </div>
-                                        <p class="location"><i class="ti-location-pin"></i> {{$job['location']}}</p>
-                                        <ul class="tags clearfix">
-                                            <li><i class="ti-money"></i> Monthly Salary : <span>{{$job['salary']}}</span></li>
-                                            <li><i class="ti-calendar"></i> Post Date: {{format_date($job['created_at'])}}</li>
-                                            <li><i class="ti-calendar"></i> Apply Before: {{ format_date($job['last_date']) }}</li>
-                                        </ul>
+                        </div>
+                         @include('notifications')
+                        <div class="details">
+                            <div class="content">
+                                <h4 class="title">Apply Now</h4>
+
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                <label class="control-label col-sm-3" for="name">Name</label>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                     @csrf
+                                     {!!Form::text('name')
+                                     ->placeholder('Name')
+                                     ->required()
+                                     ->raw()!!}
+                                    </div>
+                                </div>
+                                <label class="control-label col-sm-3" for="email">Email</label>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                     {!!Form::email('email')
+                                     ->placeholder('Email')
+                                     ->required()
+                                     ->raw()!!}
+                                    </div>
+                                </div>
+                                <label class="control-label col-sm-3" for="address">Mobile Number</label>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                   {!!Form::text('mobile')
+                                   ->placeholder('Mobile Number')
+                                   ->required()
+                                   ->raw()!!}
+                                    </div>
+                                </div>
+                                <label class="control-label col-sm-3" for="message">Message</label>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                   {!!Form::textarea('message')
+                                   ->placeholder('message')
+                                   ->rows(4)
+                                   ->raw()!!}
+                                   </div>
+                                   <input type="hidden" name="job_id" value="{{$job->id}}">
+                                </div>
+                                 <label class="control-label col-sm-3" for="file" >Upload CV <br/> (We allow only .doc and .pdf file)</label>
+                                  <div class="col-sm-9">
+                                    <div class="form-group">
+                                      {!!Form::file('resume')
+                                      ->placeholder('Upload your resume')
+                                      ->forceValue('')
+                                      ->rows(4)
+                                      ->raw()!!}
+                                      {!!Form::hidden('upload_folder')
+                                      ->raw()!!}
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-9 offset-3">
+                                      <div class="g-recaptcha" data-sitekey="{{config('services.recaptcha.site')}}">
                                         
-                                    </div>
+                                      </div>
+                                  </div>
+                                <div class="footer text-right">
 
-                                    <div class="details">
-                                        <div class="row">
-                                            <div class="col-md-4 col-md-push-8">
-                                                <div class="apply-box mb-30">
-                                                    <a href="{{ url('apply') }}/{{ $job['slug']}}" class="apply-job-btn">Apply for the job</a>
-                                                    <span>Application ends in 4d 5h 3m</span>
-                                                    <div class="apply-with-title">
-                                                        <small>OR apply with</small>
-                                                    </div>
-                                                    <p>Know someone who would be perfect for  this role this role? Be a pal, let them know.</p>
-                                                    <ul class="clearfix">
-                                                        <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                                                        <li><a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8 col-md-pull-4">
-                                                <div class="content">
-                                                    <h4 class="title">Job Description</h4>
-                                                    <p class="mb-30">{!! $job['details'] !!}</p>
-                                                  @if($job['responsibilities'] != '')
-
-                                                    <h4 class="title">Responsibilities</h4>
-                                                    <ul class="mb-30">
-                                                        <li>{!! $job['responsibilities'] !!}</li>
-                                                    </ul>
-                                                    @endif
-                                                    @if($job['qualifications'] != '')
-                                                    <h4 class="title">Minimum qualifications</h4>
-                                                    <ul>
-                                                        <li>{!! $job['qualifications'] !!} </li>
-                                                    </ul>
-                                                     @endif
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
+                                <button type="submit"
+                                    class="btn btn-primary">Apply Now</button>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            
-
-           
-        </div>
-
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close"></span></button>
-                    </div>
-                    <div class="modal-body">
-                        <h2>Login to Your Account</h2>
-                        <div class="text-center social-links mt-20">
-                            <a href="#" class="btn btn-icon btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" class="btn btn-icon btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" class="btn btn-icon btn-google"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                            <a href="#" class="btn btn-icon btn-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            <h3>OR<br><span class="login">Log in Using</span></h3>
-                        </div>
-                        <form action="login.html" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" required>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-sm-6 text-left">
-                                    <div class="checkbox checkbox-primary checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label for="inlineCheckbox1"> Remember Me </label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 text-right">
-                                    <p><a href="">Forgot password?</a></p>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary mt20">Login</button>
-                        </form>
-                    </div>
-                        
-                    <div class="modal-footer">
-                        <p><a href="#"  data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Dont have an account yet?</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close"></span></button>
-                    <div class="modal-body">
-                        <div class="imageblock-content col-md-5 col-sm-3">
-                            <div class="background-image-holder" style="background-image: url('img/register_bg.jpg');"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-5 col-md-push-6 col-sm-7 col-sm-push-4">
-                                    <h2>Create an account</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget lectus pretium, sollicitudin urna nec.</p>
-                                    <div class="text-center social-links mt-20">
-                                        <a href="#" class="btn btn-icon btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href="#" class="btn btn-icon btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href="#" class="btn btn-icon btn-google"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        <a href="#" class="btn btn-icon btn-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                        <h3>OR<br><span class="login">Register Using</span></h3>
-                                    </div>
-                                    <form action="register.html" method="post">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Enter E-mail Address" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary mt20 mb20">Create Account</button>
-                                        <p>By signing up, you agree to the <a href="">Terms of Service</a></p>
-                                    </form>
-                                    <div class="modal-footer">
-                                        <p><a href="" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Already have account?</a></p>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/theme.js"></script>
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-    </body>
-</html>
+    </div>
+</section>

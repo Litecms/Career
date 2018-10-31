@@ -73,7 +73,7 @@ class ResumeResourceController extends BaseController
 
         return $this->response->setMetaTitle(trans('app.view') . ' ' . trans('career::resume.name'))
             ->data(compact('resume'))
-            ->view($view, true)
+            ->view($view)
             ->output();
     }
 

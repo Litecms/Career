@@ -29,7 +29,9 @@ return [
             'slugs'                 => ['slug' => 'name'],
             'dates'                 => ['deleted_at', 'createdat', 'updated_at'],
             'appends'               => [],
-            'fillable'              => ['id',  'name',  'email',  'mobile',  'message',  'resume',  'image',  'job_id',    'published',     'uploaded_folder',  'created_at',  'updated_at',  'deleted_at'],
+            'fillable'              => ['id',  'name',  'email',  'mobile',  'message',  'resume',  'image',  
+                                        'job_id',    'published',     'uploaded_folder',  'created_at',  
+                                        'updated_at',  'deleted_at'],
             'translatables'         => [],
             'upload_folder'         => 'career/resume',
             'uploads'               => [

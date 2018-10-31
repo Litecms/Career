@@ -20,16 +20,16 @@ class CreateCareerResumesTable extends Migration
          */
         Schema::create(config('litecms.career.resume.model.table'), function ($table) {
             $table->increments('id');
-            $table->string('name', 255)->nullable();
-            $table->string('email', 255)->nullable();
-            $table->integer('mobile')->nullable();
+            $table->string('name', 100)->nullable();
+            $table->string('email', 100)->nullable();
+            $table->string('mobile',15)->nullable();
             $table->string('message', 255)->nullable();
             $table->text('resume')->nullable();
             $table->text('image')->nullable();
             $table->integer('job_id')->nullable();
             $table->string('slug', 255)->nullable();
             $table->enum('published', ['Yes','No'])->nullable();
-            $table->string('uploaded_folder', 255)->nullable();
+            $table->string('upload_folder', 50)->nullable();
             $table->softDeletes();
             $table->nullableTimestamps();
         });

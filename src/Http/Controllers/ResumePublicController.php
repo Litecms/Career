@@ -23,84 +23,31 @@ class ResumePublicController extends BaseController
         parent::__construct();
     }
 
-    /**
-     * Show resume's list.
-     *
-     * @param string $slug
-     *
-     * @return response
-     */
-    protected function index()
-    {
-        $resumes = $this->repository
-        ->pushCriteria(app('Litepie\Repository\Criteria\RequestCriteria'))
-        ->scopeQuery(function($query){
-            return $query->orderBy('id','DESC');
-        })->paginate();
+    protected function store(Request $request) { 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required|email',
+        ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
-        return $this->response->setMetaTitle(trans('career::resume.names'))
-            ->view('career::public.resume.index')
-            ->data(compact('resumes'))
-            ->output();
+        try {
+
+            $attributes = $request->all();
+            // $target_dir = storage_path('uploads/');
+            //  $target_file = $target_dir . basename($_FILES["resume"]["name"]); 
+            // move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file);
+            $resume = $this->repository->create($attributes);
+            return redirect(trans_url('/careers'));
+        }
+           catch (Exception $e) {
+               redirect()->back()->withInput()->with('message', $e->getMessage())->with('code', 400);
+        }
     }
-
-    /**
-     * Show resume's list based on a type.
-     *
-     * @param string $slug
-     *
-     * @return response
-     */
-    protected function list($type = null)
-    {
-        $resumes = $this->repository
-        ->pushCriteria(app('Litepie\Repository\Criteria\RequestCriteria'))
-        ->scopeQuery(function($query){
-            return $query->orderBy('id','DESC');
-        })->paginate();
-
-
-        return $this->response->setMetaTitle(trans('career::resume.names'))
-            ->view('career::public.resume.index')
-            ->data(compact('resumes'))
-            ->output();
-    }
-
-    /**
-     * Show resume.
-     *
-     * @param string $slug
-     *
-     * @return response
-     */
-    protected function show($slug)
-    {
-        $resume = $this->repository->scopeQuery(function($query) use ($slug) {
-            return $query->orderBy('id','DESC')
-                         ->where('slug', $slug);
-        })->first(['*']);
-
-        return $this->response->setMetaTitle($$resume->name . trans('career::resume.name'))
-            ->view('career::public.resume.show')
-            ->data(compact('resume'))
-            ->output();
-    }
-
-     protected function upload(Request $request)
-        { 
-               try
-                   {
-                       $attributes = $request->all();
-                       // $target_dir = storage_path('uploads/');
-                       //  $target_file = $target_dir . basename($_FILES["resume"]["name"]); 
-                       // move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file);
-                       $resume = $this->repository->create($attributes);
-                       return redirect(trans_url('/careers'));
-                   }
-               catch (Exception $e) {
-                   redirect()->back()->withInput()->with('message', $e->getMessage())->with('code', 400);
-               }
-       }
 
 }

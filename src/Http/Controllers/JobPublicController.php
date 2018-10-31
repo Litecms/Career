@@ -4,6 +4,9 @@ namespace Litecms\Career\Http\Controllers;
 
 use App\Http\Controllers\PublicController as BaseController;
 use Litecms\Career\Interfaces\JobRepositoryInterface;
+use Litecms\Career\Interfaces\ResumeRepositoryInterface;
+use Illuminate\Http\Request;
+use Validator;
 
 class JobPublicController extends BaseController
 {
@@ -16,9 +19,10 @@ class JobPublicController extends BaseController
      *
      * @return type
      */
-    public function __construct(JobRepositoryInterface $job)
+    public function __construct(JobRepositoryInterface $job, ResumeRepositoryInterface $resume)
     {
         $this->repository = $job;
+        $this->resume = $resume;
         parent::__construct();
     }
 
@@ -45,59 +49,50 @@ class JobPublicController extends BaseController
     }
 
     /**
-     * Show job's list based on a type.
-     *
-     * @param string $slug
-     *
-     * @return response
-     */
-    protected function list($type = null)
-    {
-        $jobs = $this->repository
-        ->pushCriteria(app('Litepie\Repository\Criteria\RequestCriteria'))
-        ->scopeQuery(function($query){
-            return $query->orderBy('id','DESC');
-        })->paginate();
-
-
-        return $this->response->setMetaTitle(trans('career::job.names'))
-            ->view('career::public.job.index')
-            ->data(compact('jobs'))
-            ->output();
-    }
-
-    /**
      * Show job.
      *
      * @param string $slug
      *
      * @return response
      */
-    protected function show($slug)
+    protected function show(Request $request, $slug)
     {
-        $job = $this->repository->scopeQuery(function($query) use ($slug) {
-            return $query->orderBy('id','DESC')
-                         ->where('slug', $slug);
-        })->first(['*']);
 
-        return $this->response->setMetaTitle(trans('career::job.name'))
-            ->view('career::public.job.show')
-            ->data(compact('job'))
-            ->output();
+        $job = $this->repository->scopeQuery(function($query) use ($slug) {
+           return $query->orderBy('id','DESC')
+                        ->where('slug', $slug);
+        })->first(['*']);
+        $data = $request->old();
+        $this->response->theme->asset()->add('re-captcha', 'https://www.google.com/recaptcha/api.js');
+        return $this->response->setMetaTitle(trans('career::job.name').' ['.$job->title.']')
+             ->view('career::public.job.show')
+             ->data(compact('data', 'job'))
+             ->output();
     }
 
-    protected function apply($slug)
+    protected function apply(Request $request, $slug)
     {
-       
-         $resume = $this->repository->scopeQuery(function($query) use ($slug) {
-            return $query->orderBy('id','DESC')
-                         ->where('slug', $slug);
-        })->first(['*']);
-        
-           return $this->response->setMetaTitle(trans('career::resume.resume'))
-               ->view('career::public.job.resume')
-               ->data(compact('resume'))
-               ->output();
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        try {
+            $attributes = $request->all();
+            $resume = $this->resume->create($attributes);
+            return redirect(trans_url('careers'))->withSuccess('Your resume has been send successfully!');
+        } catch (Exception $e) {
+            redirect()->back()->withInput()->withError($e->getMessage());
+        }
+
     }
 
 }

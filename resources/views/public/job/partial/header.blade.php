@@ -4,7 +4,7 @@
       <div class="col-md-8 col-md-offset-2 text-center">
         <h1>{!! trans('career::job.name') !!}</h1>
         <form action="#" class="search search-full">
-            <input type="text" class="form-control" placeholder="Search existing blogs">
+            <input type="text" class="form-control" placeholder="Search existing jobs">
             <button class="btn btn-primary" type="submit"><i class="ti-search"></i></button>
         </form>
       </div>
